@@ -20,6 +20,8 @@ import NotFound from './Pages/NotFound/NotFound'
 import Portfolio from './Pages/Portfolio/Portfolio';
 import Purchase from './Pages/Purchase/Purchase';
 import Payment from './Pages/Dashboard/Payment';
+import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
+
 function App() {
   return (
     <div className='max-w-7xl mx-auto px-12'>
@@ -42,6 +44,7 @@ function App() {
         <Route path="addItem" element={<RequireAdmin><AddItem></AddItem></RequireAdmin>}></Route>
         <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
         <Route path="manageItem" element={<RequireAdmin><ManageItem></ManageItem></RequireAdmin>}></Route>
+        <Route path="manageOrder" element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}></Route>
          
         </Route>
         <Route path="login" element={<Login />} />
