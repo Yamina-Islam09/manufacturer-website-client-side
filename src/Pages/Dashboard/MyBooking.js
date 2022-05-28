@@ -53,15 +53,20 @@ const MyBooking = () => {
                                     <td>{a.name}</td>
                                     <td>{a.item}</td>
                                     <td>{a.price}</td>
-                                    <td><button>Delete</button></td>
-                                    <td><button>Payment</button></td>
-                                    {/*  <td>
+                                    <td>{(a.price && !a.paid) && <div>
+                                        <button className='btn btn-xs btn-warning'>Delete</button>
+                                         </div>}
+                                    {(a.price && a.paid) && <div>
+                                        <button className='btn btn-xs btn-warning' disabled>Delete</button>
+                                         </div>}</td>
+                                    {/* <td><button>Payment</button></td> */}
+                                     <td>
                                         {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
                                        {(a.price && a.paid) && <div>
                                             <p><span className='text-success'>Paid</span></p>
                                              <p>Transaction id: <span className='text-success'>{a.transactionId}</span></p>
                                          </div>}
-                                     </td> */}
+                                     </td>
                                 </tr>)
                             }
     

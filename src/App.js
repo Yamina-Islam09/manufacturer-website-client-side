@@ -19,7 +19,7 @@ import Blog from './Pages/Blog/Blog';
 import NotFound from './Pages/NotFound/NotFound'
 import Portfolio from './Pages/Portfolio/Portfolio';
 import Purchase from './Pages/Purchase/Purchase';
-
+import Payment from './Pages/Dashboard/Payment';
 function App() {
   return (
     <div className='max-w-7xl mx-auto px-12'>
@@ -38,6 +38,7 @@ function App() {
         <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
         <Route index element={<MyBooking></MyBooking>}></Route>
         <Route path="review" element={<AddReview></AddReview>}></Route>
+        <Route path="payment/:id" element={<Payment></Payment>}></Route>
         <Route path="addItem" element={<RequireAdmin><AddItem></AddItem></RequireAdmin>}></Route>
         <Route path="users" element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
         <Route path="manageItem" element={<RequireAdmin><ManageItem></ManageItem></RequireAdmin>}></Route>
