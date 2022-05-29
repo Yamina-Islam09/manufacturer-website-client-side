@@ -69,6 +69,9 @@ const MyBooking = () => {
                 <td>
                   {a.price && !a.paid && (
                     <div>
+                      <label for="my-modal-6" class="btn modal-button btn-xs">
+                    Delete
+                  </label>
                       <input
                         type="checkbox"
                         id="my-modal-6"

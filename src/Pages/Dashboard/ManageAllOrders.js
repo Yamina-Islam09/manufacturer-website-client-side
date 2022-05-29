@@ -66,6 +66,7 @@ const ManageAllOrders = () => {
               <th>CurrentStatus</th>
               
               <th>UpdateStatus</th>
+              <th>Check</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -78,30 +79,55 @@ const ManageAllOrders = () => {
                 <td>{order.price}</td>
                 <td>{order.status}</td>
                 <td>
-                  <form
-                    className="d-flex align-items-center me-4"
+                <form
+                    className="flex items-center me-4"
                     onSubmit={(e) => handleUpdateStatus(e)}
                   >
                     <select
                       defaultValue={order.status}
                       id={order._id}
-                      className="border-2 border-gray-100 form-select block w-full p-2"
+                      class="select input-bordered w-full max-w-xs"
                     >
                       <option value="Pending">Pending</option>
                       <option value="Approved">Approved</option>
                     </select>
-                    <button type="submit" className="btn btn-warning">
+                    <button type="submit" className="btn bt-xs btn-warning">
                       <i className="fas fa-check"></i>
                     </button>
-                  </form>
+                  </form> 
                 </td>
                 <td>
-                  <button
-                    onClick={() => handleDeleteOrder(order._id)}
-                    className="btn btn-danger"
-                  >
+                {order.price && !order.paid && (
+    <Link to={`/dashboard/payment/${order._id}`}   >
+      
+      <label for="my-modal-6" class="btn modal-button btn-xs">
                     Delete
-                  </button>
+                  </label>
+      
+    </Link>
+  )}
+  {order.price && order.paid && (
+    <div>
+      <button className="btn btn-xs btn-warning" disabled>Delete</button>
+    </div>
+  )}
+                
+                  
+                  <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+                <div class="modal modal-bottom sm:modal-middle">
+                  <div class="modal-box">
+                    <p class="py-4">Are you sure?</p>
+                    <div class="modal-action">
+                      <label
+                        for="my-modal-6"
+                        class="btn btn-xs"
+                        onClick={() => handleDeleteOrder(order._id)}
+                      >
+                        Yay!
+                      </label>
+                    </div>
+                  </div>
+                </div>
                 </td>
               </tr>
             ))}
@@ -128,19 +154,4 @@ export default ManageAllOrders;
 //   )}
 
 
-{/* <form
-                    className="flex items-center me-4"
-                    onSubmit={(e) => handleUpdateStatus(e)}
-                  >
-                    <select
-                      defaultValue={order.status}
-                      id={order._id}
-                      class="select input-bordered w-full max-w-xs"
-                    >
-                      <option value="Pending">Pending</option>
-                      <option value="Approved">Approved</option>
-                    </select>
-                    <button type="submit" className="btn bt-xs btn-warning">
-                      <i className="fas fa-check"></i>
-                    </button>
-                  </form> */}
+ 
