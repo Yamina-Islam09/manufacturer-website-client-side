@@ -12,8 +12,7 @@ const ManageAllOrders = () => {
   const [user] = useAuthState(auth);
 
   const handleDeleteOrder = (id) => {
-    const isDelete = window.confirm("Are you sure?");
-    if (isDelete) {
+    
       axios
         .post("http://localhost:5000/deleteOrder", {
           UserId: id,
@@ -22,7 +21,7 @@ const ManageAllOrders = () => {
           setDeleteCount(deleteCount + 1);
           console.log("Order Deleted");
         });
-    }
+    
   };
 
   const handleUpdateStatus = (e) => {
