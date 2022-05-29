@@ -33,7 +33,7 @@ const MyBooking = () => {
     
         return (
             <div>
-                <h2>My booking: {bookings.length}</h2>
+                
                 <div class="overflow-x-auto">
                     <table class="table w-full">
                         <thead>

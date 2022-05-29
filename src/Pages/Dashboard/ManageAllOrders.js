@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { Link } from "react-router-dom";
 
 const ManageAllOrders = () => {
   const [deleteCount, setDeleteCount] = useState(0);
@@ -44,33 +45,39 @@ const ManageAllOrders = () => {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/manageAllOrders")
-      .then((res) => setAllOrders(res.data));
+    fetch("http://localhost:5000/manageAllOrders", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setAllOrders(data));
   }, [deleteCount, statusCount, user]);
 
   return (
-    <div className="container">
-      <div className="table-responsive">
-        <table class="table">
+    <div>
+      <div class="overflow-x-auto">
+        <table class="table w-full">
           <thead>
             <tr>
-              <th scope="col">USER EMAIL</th>
-              <th scope="col">Item</th>
-              <th scope="col">Price</th>
-              <th scope="col">CURRENT STATUS</th>
-              <th scope="col">UPDATE STATUS</th>
-              <th scope="col">DELETE</th>
+              <th></th>
+              <th>Item</th>
+              <th>Price</th>
+              <th>CurrentStatus</th>
+              
+              <th>UpdateStatus</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
-            {allOrders.map((order) => (
-              <tr>
+            {allOrders.map((order, index) => (
+              <tr key={order._id}>
+                <th>{index + 1}</th>
                 <th>{order.email}</th>
-                <th>{order.bookedSpot.item}</th>
-                <td>{order.bookedSpot.price}</td>
+                <th>{order.item}</th>
+                <td>{order.price}</td>
                 <td>{order.status}</td>
-
                 <td>
                   <form
                     className="d-flex align-items-center me-4"
@@ -107,3 +114,34 @@ const ManageAllOrders = () => {
 };
 
 export default ManageAllOrders;
+
+// {order.price && !order.paid && (
+//     <Link to={`/dashboard/payment/${order._id}`} onClick={() => handleDeleteOrder(order._id)}  className="btn btn-xs btn-success">
+      
+//         Delete
+      
+//     </Link>
+//   )}
+//   {order.price && order.paid && (
+//     <div>
+//       <button className="btn btn-xs btn-warning" disabled>Delete</button>
+//     </div>
+//   )}
+
+
+{/* <form
+                    className="flex items-center me-4"
+                    onSubmit={(e) => handleUpdateStatus(e)}
+                  >
+                    <select
+                      defaultValue={order.status}
+                      id={order._id}
+                      class="select input-bordered w-full max-w-xs"
+                    >
+                      <option value="Pending">Pending</option>
+                      <option value="Approved">Approved</option>
+                    </select>
+                    <button type="submit" className="btn bt-xs btn-warning">
+                      <i className="fas fa-check"></i>
+                    </button>
+                  </form> */}

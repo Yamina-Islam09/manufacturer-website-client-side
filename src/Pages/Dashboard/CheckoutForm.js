@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
+
 const CheckoutForm = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
@@ -127,6 +128,7 @@ const CheckoutForm = ({ appointment }) => {
                     <p>Your transaction Id: <span className="text-orange-500 font-bold">{transactionId}</span> </p>
                 </div>
             }
+            
         </>
     );
 };
