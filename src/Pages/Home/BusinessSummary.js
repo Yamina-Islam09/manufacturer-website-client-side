@@ -10,7 +10,7 @@ const BusinessSummary = () => {
                     </div>
                     <div className="stat-title">Daily Order</div>
                     <div className="stat-value">31K</div>
-                    <div className="stat-desc">{date.toDateString()}</div>
+                    {/* <div className="stat-desc">{date.toDateString()}</div> */}
                 </div>
 
                 <div className="stat">
