@@ -12,7 +12,7 @@ const MyBooking = () => {
   const navigate = useNavigate();
   const handleDelete = id =>{
 
-    const url = `http://localhost:5000/booking/${id}`;
+    const url = `https://pacific-stream-39209.herokuapp.com/booking/${id}`;
     fetch(url, {
         method: 'DELETE'
     })
@@ -29,7 +29,7 @@ const MyBooking = () => {
   useEffect(() => {
     const getItems = async () => {
       const email = user?.email;
-      const url = `http://localhost:5000/mybooking?email=${email}`;
+      const url = `https://pacific-stream-39209.herokuapp.com/mybooking?email=${email}`;
 
       try {
         const { data } = await axiosPrivate.get(url);

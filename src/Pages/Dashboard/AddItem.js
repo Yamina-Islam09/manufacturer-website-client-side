@@ -13,13 +13,13 @@ const AddItem = () => {
   } = useForm();
 
   const { data: items, isLoading } = useQuery("items", () =>
-    fetch("http://localhost:5000/item").then((res) => res.json())
+    fetch("https://pacific-stream-39209.herokuapp.com/item").then((res) => res.json())
   );
   const onSubmit = async (data) => {
     console.log(data);
    
 
-    const url = `http://localhost:5000/item`;
+    const url = `https://pacific-stream-39209.herokuapp.com/item`;
     fetch(url, {
       method: "POST",
       headers: {

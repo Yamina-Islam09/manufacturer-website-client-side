@@ -7,7 +7,7 @@ const ManageItem = () => {
   const [items, setItems] = useItem();
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/item/${id}`;
+    const url = `https://pacific-stream-39209.herokuapp.com/item/${id}`;
     fetch(url, {
       method: "DELETE",
     })

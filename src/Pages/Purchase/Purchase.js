@@ -25,7 +25,7 @@ console.log('please give a proper order')
   }
 
   useEffect(() => {
-    fetch(`http://localhost:5000/item/${itemId}`)
+    fetch(`https://pacific-stream-39209.herokuapp.com/item/${itemId}`)
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
@@ -35,7 +35,7 @@ console.log('please give a proper order')
     event.preventDefault();
     const qtn = parseInt(event.target.quantity.value);
     let value = parseInt(available) - qtn;
-    const url = `http://localhost:5000/item/${itemId}`;
+    const url = `https://pacific-stream-39209.herokuapp.com/item/${itemId}`;
     const booking = {
         itemIdId: _id,
         item: name,
@@ -45,7 +45,7 @@ console.log('please give a proper order')
         address:event.target.address.value,
         phone: event.target.phone.value
     }
-    fetch('http://localhost:5000/booking', {
+    fetch('https://pacific-stream-39209.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

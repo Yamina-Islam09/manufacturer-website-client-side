@@ -13,12 +13,12 @@ const AddReview = () => {
   } = useForm();
 
   const { data: reviews, isLoading } = useQuery("reviews", () =>
-    fetch("http://localhost:5000/review").then((res) => res.json())
+    fetch("https://pacific-stream-39209.herokuapp.com/review").then((res) => res.json())
   );
   const onSubmit = async (data) => {
     console.log(data);
 
-    const url = `http://localhost:5000/review`;
+    const url = `https://pacific-stream-39209.herokuapp.com/review`;
     fetch(url, {
       method: "POST",
       headers: {

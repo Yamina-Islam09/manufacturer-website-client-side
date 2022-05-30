@@ -21,6 +21,8 @@ import Portfolio from './Pages/Portfolio/Portfolio';
 import Purchase from './Pages/Purchase/Purchase';
 import Payment from './Pages/Dashboard/Payment';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
+import AllItems from './Pages/AllItems/AllItems';
+import MyProfile from './Pages/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="blog" element={<Blog />} />
         <Route path="portfolio" element={<Portfolio />} />
+        <Route path="allitems" element={<AllItems />} />
         <Route path="item/:itemId" element={
           <RequireAuth>
            <Purchase></Purchase>
@@ -38,6 +41,7 @@ function App() {
 
        
         <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
+       
         <Route index element={<MyBooking></MyBooking>}></Route>
         <Route path="review" element={<AddReview></AddReview>}></Route>
         <Route path="payment/:id" element={<Payment></Payment>}></Route>

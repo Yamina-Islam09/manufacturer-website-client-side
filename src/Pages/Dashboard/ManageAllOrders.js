@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
   const handleDeleteOrder = (id) => {
     
       axios
-        .post("http://localhost:5000/deleteOrder", {
+        .post("https://pacific-stream-39209.herokuapp.com/deleteOrder", {
           UserId: id,
         })
         .then((res) => {
@@ -30,7 +30,7 @@ const ManageAllOrders = () => {
     const id = e.target.querySelector("select").id;
 
     axios
-      .post("http://localhost:5000/updateStatus", {
+      .post("https://pacific-stream-39209.herokuapp.com/updateStatus", {
         status: status,
         id: id,
       })
@@ -44,7 +44,7 @@ const ManageAllOrders = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/manageAllOrders", {
+    fetch("https://pacific-stream-39209.herokuapp.com/manageAllOrders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

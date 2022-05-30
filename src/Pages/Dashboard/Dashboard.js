@@ -22,13 +22,13 @@ const Dashboard = () => {
                         !admin && <>
                         <li><Link to="/dashboard">My Booking</Link></li>
                     <li><Link to="/dashboard/review">Add Review</Link></li>
-                    <li><Link to="/dashboard/myProfile">My Profile</Link></li>
+                    <li><Link to="/dashboard/myprofile">My Profile</Link></li>
                         
                         </>
                     }
                     
                     { admin && <>
-                     <li><Link to="/dashboard/myProfile">My Profile</Link></li>
+                     <li><Link to="/dashboard">My Booking</Link></li>
                         <li><Link to="/dashboard/users">All Users</Link></li>
                         <li><Link to="/dashboard/addItem">Add an Item</Link></li>
                         <li><Link to="/dashboard/manageItem">Manage Items</Link></li>

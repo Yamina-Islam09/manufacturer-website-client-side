@@ -17,6 +17,7 @@ const Navbar = () => {
         <li><Link to="/" className='text-warning'>Home</Link></li>
         <li><Link to="/blog">Blog</Link></li>
         <li><Link to="/portfolio">Portfolio</Link></li>
+        <li><Link to="/allitems">All Items</Link></li>
         {
             user && <li><Link to="/dashboard">Dashboard</Link></li>
         }
